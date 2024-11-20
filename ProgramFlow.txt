@@ -5,12 +5,6 @@ All pages contain the following comps:
 
 There is a dedicated 404 page for non-existing routes
 
-Title on the page changes randomly on each page refresh.
-    [e.g.] Rickle Pick!, C-137, WLDD!, Evil Morty, I am Aliiive!, etc.,
- - Titles can be saved either in an object or an array and selected randomly upon page load.
- - Styles can be randomly selected as well, OR each title can have their own styles
-    - Styles can be saved is a state variable and also randomly selected upon page refresh.
-
 1 LANDING PAGE
     1.1 
 
