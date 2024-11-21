@@ -1,0 +1,14 @@
+.main {
+  font-family: "Exo";
+  font-weight: 200;
+  font-size: 25px;
+  font-style: normal;
+
+  background-color: blueviolet;
+
+  margin: 10px 0 0 0;
+  padding: 10px;
+  width: 100%;
+
+  border-radius: 10px;
+}

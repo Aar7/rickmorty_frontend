@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
 
   font-family: "Turret Road";
   font-weight: 900;
@@ -10,11 +10,15 @@
   font-style: normal;
   background-color: green;
 
-  margin: 10px 0 0 0;
-  padding: 10px;
+  padding: 10px 25px;
   width: 100%;
 
-  border-radius: 10px;
+  border-radius: 100px;
+}
+
+.header__wrapper {
+  display: flex;
+  flex-direction: row;
 }
 
 .header__title {
@@ -33,4 +37,28 @@
 .header__image_rick {
   height: 100px;
   width: 100px;
+}
+
+.header__tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header__tabs_button {
+  width: 143px;
+  height: 60px;
+  border-radius: 100px;
+  border: solid rgba(47, 113, 229, 1) 2px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.header__tabs_button:hover {
+  background-color: rgba(47, 113, 229, 1);
+  color: white;
+}
+
+.header__tabs_button:last-of-type {
+  margin-right: 0;
 }
