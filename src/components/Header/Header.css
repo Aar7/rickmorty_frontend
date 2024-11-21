@@ -28,6 +28,8 @@
   text-align: center;
   margin: 0 25px 0 25px;
   /* line-height: 2; */
+  text-decoration: none;
+  color: black;
 }
 
 .header__image_morty {
@@ -53,6 +55,13 @@
   border: solid rgba(47, 113, 229, 1) 2px;
   cursor: pointer;
   margin-right: 10px;
+  text-decoration: none;
+  color: rgba(47, 113, 229, 1);
+  background-color: white;
+
+  font-family: "Exo", "Inter";
+  font-size: 20px;
+  font-weight: normal;
 }
 
 .header__tabs_button:hover {
