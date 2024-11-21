@@ -1,24 +1,22 @@
 import { useEffect, useState } from "react";
 import "./Characters.css";
+import ItemCard from "../ItemCard/ItemCard";
+import QueryWrapper from "../QueryWrapper/QueryWrapper";
 
 function Characters({ chars }) {
-  useEffect(() => {
-    console.log(chars);
-  }, [chars]);
+  // useEffect(() => {
+  //   console.log(chars);
+  // }, [chars]);
+  // const charItemArray =
+  const characterArray = chars.map((item) => {
+    return <ItemCard cardData={item} />;
+  });
   return (
     <>
-      <p>Characters go here</p>
-
-      {/* <img src={`${chars[0].image}`} />
-      <p>Name: {chars[0].name}</p>
-      <img src={`${chars[1].image}`} />
-      <p>Name: {chars[1].name}</p>
-      <img src={`${chars[2].image}`} />
-      <p>Name: {chars[2].name}</p>
-      <img src={`${chars[3].image}`} />
-      <p>Name: {chars[3].name}</p>
-      <img src={`${chars[4].image}`} />
-      <p>Name: {chars[4].name}</p> */}
+      <div className="characters">
+        <p>Characters go here</p>
+        <QueryWrapper>{characterArray}</QueryWrapper>
+      </div>
     </>
   );
 }
