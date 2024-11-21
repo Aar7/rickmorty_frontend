@@ -6,7 +6,7 @@ All pages contain the following comps:
 There is a dedicated 404 page for non-existing routes
 
 1 LANDING PAGE
-    1.1 
+    1.1
 
 The following pages contain these components...
     - Header comp
@@ -22,3 +22,13 @@ The following pages contain these components...
 2 CHARACTERS PAGE (do this one for project review)
 3 LOCATIONS PAGE
 4 EPISODES PAGE
+
+---------------------------------
+API FLOW FOR NAVIGATING ACROSS PAGES
+
+1   On clicking header tab, first 20 results are loaded. There is the 'previous' and 'next' page arrows
+2   Clicking on an arrow will send a request to the API with the prev or next field in the 'info' object of the response. Therefore, these fields need to be saved and updated for an API request. One could just calculate when the user is at the end page, but this seems unecessary as the data is handed to us.
+
+API FLOW FOR LOOKING FOR MULTIPLE CHARACTERS at once
+1   User enter multiple queries saved as an array.
+  1.1   Queries are processed individually and generated according to each query. There can be a component that houses the cards titled with the query

@@ -1,0 +1,21 @@
+.itemcard {
+  background-color: white;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+
+  font-size: 16px;
+}
+
+.itemcard__charImg {
+  overflow: hidden;
+  border-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.itemcard__charImg_hidden {
+  visibility: hidden;
+  opacity: 0;
+}

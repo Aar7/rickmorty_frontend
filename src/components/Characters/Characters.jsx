@@ -9,7 +9,7 @@ function Characters({ chars }) {
     <>
       <p>Characters go here</p>
 
-      <img src={`${chars[0].image}`} />
+      {/* <img src={`${chars[0].image}`} />
       <p>Name: {chars[0].name}</p>
       <img src={`${chars[1].image}`} />
       <p>Name: {chars[1].name}</p>
@@ -17,6 +17,8 @@ function Characters({ chars }) {
       <p>Name: {chars[2].name}</p>
       <img src={`${chars[3].image}`} />
       <p>Name: {chars[3].name}</p>
+      <img src={`${chars[4].image}`} />
+      <p>Name: {chars[4].name}</p> */}
     </>
   );
 }
