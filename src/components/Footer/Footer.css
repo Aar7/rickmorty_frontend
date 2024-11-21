@@ -1,5 +1,17 @@
-footer {
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   font-family: "Exo", sans-serif;
   font-weight: 200;
   font-style: normal;
+  width: 100%;
+
+  background-color: bisque;
+
+  margin-top: 10px;
+  padding: 20px;
+
+  box-sizing: border-box;
+  border-radius: 10px;
 }
