@@ -9,7 +9,7 @@ function Characters({ chars }) {
   // }, [chars]);
   // const charItemArray =
   const characterArray = chars.map((item) => {
-    return <ItemCard cardData={item} />;
+    return <ItemCard key={item.id} cardData={item} />;
   });
   return (
     <>

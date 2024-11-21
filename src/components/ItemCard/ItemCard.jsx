@@ -12,7 +12,7 @@ function ItemCard({ cardData }) {
   This is necessary because only the character endpoint has an image for the character,
   which I want to show.
   */
-  console.log("CardData: ", cardData);
+  // console.log("CardData: ", cardData);
   let imgClasses = "itemcard__charImg itemcard__charImg_hidden";
   let itemCardImage;
   // This conditional will set the classes for the img tag in the returned markup.

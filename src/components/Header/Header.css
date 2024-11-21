@@ -54,6 +54,8 @@
   border-radius: 100px;
   border: solid rgba(47, 113, 229, 1) 2px;
   cursor: pointer;
+  margin-top: auto;
+  margin-bottom: auto;
   margin-right: 10px;
   text-decoration: none;
   color: rgba(47, 113, 229, 1);
