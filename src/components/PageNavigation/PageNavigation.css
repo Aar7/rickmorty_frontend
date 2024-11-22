@@ -23,6 +23,11 @@
   background-color: transparent;
 }
 
+.page-nav__button_disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 .page-nav__direction {
   margin: 0;
   align-self: center;

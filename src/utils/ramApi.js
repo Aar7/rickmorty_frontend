@@ -38,4 +38,14 @@ async function testEndpoints(endpoint, filter_1, index) {
   return request(`${baseUrl}/${endpoint}?name=${filter_1.name}`);
 }
 
-export { getAllCharacters, getAllLocations, getAllEpisodes, testEndpoints };
+async function goToOtherPage(otherUrl) {
+  return request(otherUrl);
+}
+
+export {
+  getAllCharacters,
+  getAllLocations,
+  getAllEpisodes,
+  testEndpoints,
+  goToOtherPage,
+};

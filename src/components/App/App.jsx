@@ -58,7 +58,9 @@ function App() {
 
   return (
     <>
-      <NavigationContext.Provider value={charInfoObj}>
+      <NavigationContext.Provider
+        value={{ charInfoObj, chars, setChars, setLocs, setEpis }}
+      >
         <Header />
         <Routes>
           <Route
@@ -71,7 +73,7 @@ function App() {
               )
             }
           />
-          <Route path="/characters" element={<Characters chars={chars} />} />
+          <Route path="/characters" element={<Characters />} />
           <Route path="/locations" element={<Locations />} />
           <Route path="/episodes" element={<Episodes />} />
         </Routes>
