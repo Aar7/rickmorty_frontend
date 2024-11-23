@@ -47,12 +47,12 @@ function PageNavigation() {
     setStateValues(data);
   }
 
-  useEffect(() => {
-    console.log(prevPage);
-    console.log(nextPage);
-    console.log(qtyPages);
-    console.log(charCount);
-  }, [prevPage, nextPage, qtyPages, charCount]);
+  // useEffect(() => {
+  //   console.log(prevPage);
+  //   console.log(nextPage);
+  //   console.log(qtyPages);
+  //   console.log(charCount);
+  // }, [prevPage, nextPage, qtyPages, charCount]);
 
   return (
     <div className="page-nav">

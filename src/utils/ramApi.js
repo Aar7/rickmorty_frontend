@@ -7,19 +7,20 @@ const options = {
 };
 
 function checkResponse(response) {
-  // console.log(response);
   if (response.ok) {
     return response.json();
   } else {
-    // throw new Error("Something went wrong :(");
     return Promise.reject(
-      new Error("There was an error fetching the requested data")
+      new Error(
+        "Sorry, something went wrong during the request. There may be a connection issue or the server may be down. Please try again later"
+      )
     );
   }
 }
 
-function request(url) {
-  return fetch(url, options).then(checkResponse);
+async function request(url) {
+  const response = await fetch(url, options);
+  return checkResponse(response);
 }
 
 async function getAllCharacters() {
@@ -34,18 +35,8 @@ async function getAllEpisodes() {
   return request(`${baseUrl}/episode`);
 }
 
-async function testEndpoints(endpoint, filter_1, index) {
-  return request(`${baseUrl}/${endpoint}?name=${filter_1.name}`);
-}
-
 async function goToOtherPage(otherUrl) {
   return request(otherUrl);
 }
 
-export {
-  getAllCharacters,
-  getAllLocations,
-  getAllEpisodes,
-  testEndpoints,
-  goToOtherPage,
-};
+export { getAllCharacters, getAllLocations, getAllEpisodes, goToOtherPage };

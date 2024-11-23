@@ -38,20 +38,6 @@ function App() {
         console.error("Requested data could not be retrieved", error);
         setLoading(false);
       }
-
-      // ram.getAllCharacters().then((res) => {
-      //   // console.log(res);
-      //   setChars(res.results);
-      //   setCharInfoObj(res.info);
-      // });
-      // ram.getAllLocations().then((res) => {
-      //   setLocs(res.results);
-      //   setLocInfoObj(res.info);
-      // });
-      // ram.getAllEpisodes().then((res) => {
-      //   setEpis(res.results);
-      //   setEpiInfoObj(res.info);
-      // });
     }
     getInitialData();
   }, []);
@@ -59,7 +45,20 @@ function App() {
   return (
     <>
       <NavigationContext.Provider
-        value={{ charInfoObj, chars, setChars, setLocs, setEpis }}
+        value={{
+          chars,
+          setChars,
+          charInfoObj,
+          setCharInfoObj,
+          locs,
+          setLocs,
+          locInfoObj,
+          setLocInfoObj,
+          epis,
+          setEpis,
+          epiInfoObj,
+          setEpiInfoObj,
+        }}
       >
         <Header />
         <Routes>

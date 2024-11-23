@@ -8,12 +8,26 @@
   padding: 10px;
   justify-content: center;
 }
-/*
-display: grid;
-grid-template-columns: repeat(auto-fit, 325px);
-row-gap: 20px;
-column-gap: 20px;
-position: relative;
-list-style-type: none;
-padding: 0;
-margin: 0; */
+
+.query-wrapper__show-more {
+  height: 35px;
+  width: 100%;
+  border-radius: 100px;
+  border: solid rgba(47, 113, 229, 1) 2px;
+  cursor: pointer;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 10px;
+  text-decoration: none;
+  color: rgba(47, 113, 229, 1);
+  background-color: white;
+
+  font-family: "Exo", "Inter";
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.query-wrapper__show-more_disabled {
+  visibility: hidden;
+  opacity: 0;
+}
