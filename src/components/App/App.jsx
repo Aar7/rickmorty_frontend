@@ -19,6 +19,7 @@ function App() {
   const [epis, setEpis] = useState([]);
   const [epiInfoObj, setEpiInfoObj] = useState({});
   const [loading, setLoading] = useState(true);
+  const [hideShowMore, setHideShowMore] = useState(false);
 
   useEffect(() => {
     async function getInitialData() {
@@ -58,6 +59,8 @@ function App() {
           setEpis,
           epiInfoObj,
           setEpiInfoObj,
+          hideShowMore,
+          setHideShowMore,
         }}
       >
         <Header />

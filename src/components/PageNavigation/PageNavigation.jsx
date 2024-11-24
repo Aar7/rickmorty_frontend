@@ -13,7 +13,8 @@ function PageNavigation() {
   let prevNavBtnClasses = "page-nav__button";
   let nextNavBtnClasses = "page-nav__button";
 
-  const { charInfoObj, setChars } = useContext(NavigationContext);
+  const { charInfoObj, setChars, hideShowMore, setHideShowMore } =
+    useContext(NavigationContext);
   const { count, next, pages, prev } = charInfoObj;
 
   useEffect(() => {
@@ -41,9 +42,12 @@ function PageNavigation() {
   async function handleClickNextBtn() {
     const data = await goToOtherPage(nextPage);
     setStateValues(data);
+    setHideShowMore(false);
+    // set the show more button back to visible
   }
   async function handleClickPrevBtn() {
     const data = await goToOtherPage(prevPage);
+    setHideShowMore(false);
     setStateValues(data);
   }
 
