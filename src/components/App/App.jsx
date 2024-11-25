@@ -16,11 +16,8 @@ function App() {
     info: { count: 0, pages: 0, next: null, prev: null },
     results: [],
   });
-  // const [charInfoObj, setCharInfoObj] = useState({});
   const [locs, setLocs] = useState({});
-  // const [locInfoObj, setLocInfoObj] = useState({});
   const [epis, setEpis] = useState({});
-  // const [epiInfoObj, setEpiInfoObj] = useState({});
   const [loading, setLoading] = useState(true);
   const [hideShowMore, setHideShowMore] = useState(false);
 
@@ -31,15 +28,9 @@ function App() {
         // const locationData = await ram.getAllLocations();
         // const episodeData = await ram.getAllEpisodes();
 
-        // setChars(characterData.results);
         setChars(characterData);
-        // setCharInfoObj(characterData.info);
-        // setLocs(locationData.results);
         // setLocs(locationData);
-        // setLocInfoObj(locationData.info);
-        // setEpis(episodeData.results);
         // setEpis(episodeData);
-        // setEpiInfoObj(episodeData.info);
         setLoading(false);
       } catch (error) {
         console.error("Requested data could not be retrieved", error);
@@ -55,16 +46,10 @@ function App() {
         value={{
           chars,
           setChars,
-          // charInfoObj,
-          // setCharInfoObj,
           locs,
           setLocs,
-          // locInfoObj,
-          // setLocInfoObj,
           epis,
           setEpis,
-          // epiInfoObj,
-          // setEpiInfoObj,
           hideShowMore,
           setHideShowMore,
         }}

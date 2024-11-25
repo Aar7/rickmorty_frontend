@@ -26,16 +26,11 @@ function Characters() {
         })
       );
       setLoading(chars.results.length < 20);
-      // if (chars.results.length < 20) {
-      //   setLoading(true);
-      // } else {
-      //   setLoading(false);
-      // }
     }
   }, [chars]);
 
   useEffect(() => {
-    setShownCards(charCards.slice(0, 3));
+    setShownCards(charCards.slice(0, showThisManyCards));
   }, [charCards]);
 
   function handleClickShowMore() {
