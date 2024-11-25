@@ -12,12 +12,15 @@ import * as ram from "../../utils/ramApi";
 import { NavigationContext } from "../../assets/contexts/NavigationContext";
 
 function App() {
-  const [chars, setChars] = useState([]);
-  const [charInfoObj, setCharInfoObj] = useState({});
-  const [locs, setLocs] = useState([]);
-  const [locInfoObj, setLocInfoObj] = useState({});
-  const [epis, setEpis] = useState([]);
-  const [epiInfoObj, setEpiInfoObj] = useState({});
+  const [chars, setChars] = useState({
+    info: { count: 0, pages: 0, next: null, prev: null },
+    results: [],
+  });
+  // const [charInfoObj, setCharInfoObj] = useState({});
+  const [locs, setLocs] = useState({});
+  // const [locInfoObj, setLocInfoObj] = useState({});
+  const [epis, setEpis] = useState({});
+  // const [epiInfoObj, setEpiInfoObj] = useState({});
   const [loading, setLoading] = useState(true);
   const [hideShowMore, setHideShowMore] = useState(false);
 
@@ -25,15 +28,18 @@ function App() {
     async function getInitialData() {
       try {
         const characterData = await ram.getAllCharacters();
-        const locationData = await ram.getAllLocations();
-        const episodeData = await ram.getAllEpisodes();
+        // const locationData = await ram.getAllLocations();
+        // const episodeData = await ram.getAllEpisodes();
 
-        setChars(characterData.results);
-        setCharInfoObj(characterData.info);
-        setLocs(locationData.results);
-        setLocInfoObj(locationData.info);
-        setEpis(episodeData.results);
-        setEpiInfoObj(episodeData.info);
+        // setChars(characterData.results);
+        setChars(characterData);
+        // setCharInfoObj(characterData.info);
+        // setLocs(locationData.results);
+        // setLocs(locationData);
+        // setLocInfoObj(locationData.info);
+        // setEpis(episodeData.results);
+        // setEpis(episodeData);
+        // setEpiInfoObj(episodeData.info);
         setLoading(false);
       } catch (error) {
         console.error("Requested data could not be retrieved", error);
@@ -49,16 +55,16 @@ function App() {
         value={{
           chars,
           setChars,
-          charInfoObj,
-          setCharInfoObj,
+          // charInfoObj,
+          // setCharInfoObj,
           locs,
           setLocs,
-          locInfoObj,
-          setLocInfoObj,
+          // locInfoObj,
+          // setLocInfoObj,
           epis,
           setEpis,
-          epiInfoObj,
-          setEpiInfoObj,
+          // epiInfoObj,
+          // setEpiInfoObj,
           hideShowMore,
           setHideShowMore,
         }}
@@ -71,7 +77,7 @@ function App() {
               loading ? (
                 <Preloader />
               ) : (
-                <Main char={chars[0]} loc={locs[0]} epi={epis[0]} />
+                <Main /* char={chars[0]} loc={locs[0]} epi={epis[0]} */ />
               )
             }
           />

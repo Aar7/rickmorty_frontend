@@ -9,28 +9,34 @@ function Characters() {
   const navContext = useContext(NavigationContext);
   const { chars, hideShowMore, setHideShowMore } = navContext;
   const [loading, setLoading] = useState(true);
-  const [shownCards, setShownCards] = useState([]);
   const [charCards, setCharCards] = useState([]);
+  const [shownCards, setShownCards] = useState([]);
   // const [hideShowMore, setHideShowMore] = useState(false);
   let showThisManyCards = 3;
 
   useEffect(() => {
-    console.log(chars);
-    setCharCards(
-      chars.map((item) => {
-        return <ItemCard key={item.id} cardData={item} />;
-      })
-    );
+    if (chars && chars.results) {
+      console.log(chars);
+      const { results } = chars;
+      console.log(results);
+      setCharCards(
+        results.map((item) => {
+          // console.log(item);
+          return <ItemCard key={item.id} cardData={item} />;
+        })
+      );
+      setLoading(chars.results.length < 20);
+      // if (chars.results.length < 20) {
+      //   setLoading(true);
+      // } else {
+      //   setLoading(false);
+      // }
+    }
   }, [chars]);
 
   useEffect(() => {
-    if (chars.length < 20) {
-      setLoading(true);
-    } else {
-      setLoading(false);
-    }
     setShownCards(charCards.slice(0, 3));
-  }, [chars]);
+  }, [charCards]);
 
   function handleClickShowMore() {
     if (shownCards.length < charCards.length) {
@@ -46,6 +52,7 @@ function Characters() {
 
   return (
     <>
+      {console.log(shownCards)}
       <div className="characters">
         <p>Characters go here</p>
         <QueryWrapper

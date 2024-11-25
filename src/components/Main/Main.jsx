@@ -8,11 +8,11 @@ function Main({ char, loc, epi }) {
     <>
       <main className="main">
         <p className="main__welcome">Featured</p>
-        <QueryWrapper>
+        {/* <QueryWrapper>
           <ItemCard key={1} cardData={char} />
           <ItemCard key={2} cardData={loc} />
           <ItemCard key={3} cardData={epi} />
-        </QueryWrapper>
+        </QueryWrapper> */}
       </main>
     </>
   );

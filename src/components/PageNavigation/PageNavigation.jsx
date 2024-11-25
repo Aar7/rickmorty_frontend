@@ -6,57 +6,32 @@ import arrowLeft from "../../assets/images/arrow-left.svg";
 import { goToOtherPage } from "../../utils/ramApi";
 
 function PageNavigation() {
-  const [prevPage, setPrevPage] = useState("");
-  const [nextPage, setNextPage] = useState("");
-  const [charCount, setCharCount] = useState(0);
-  const [qtyPages, setQtyPages] = useState(0);
   let prevNavBtnClasses = "page-nav__button";
   let nextNavBtnClasses = "page-nav__button";
 
-  const { charInfoObj, setChars, hideShowMore, setHideShowMore } =
+  const { chars, setChars, hideShowMore, setHideShowMore } =
     useContext(NavigationContext);
-  const { count, next, pages, prev } = charInfoObj;
 
+  const { count, next, pages, prev } = chars?.info || {};
   useEffect(() => {
-    setPrevPage(prev);
-    setNextPage(next);
-    setCharCount(count);
-    setQtyPages(pages);
-  }, [count, next, pages, prev]);
+    if (!prev) {
+      prevNavBtnClasses += " page-nav__button_disabled";
+    }
+    if (!next) {
+      nextNavBtnClasses += " page-nav__button_disabled";
+    }
+  }, [chars?.info]);
 
-  if (!prevPage) {
-    prevNavBtnClasses += " page-nav__button_disabled";
-  }
-  if (!nextPage) {
-    nextNavBtnClasses += " page-nav__button_disabled";
-  }
-
-  function setStateValues(data) {
-    const { info, results } = data;
-    setPrevPage(info.prev);
-    setNextPage(info.next);
-    setCharCount(info.count);
-    setQtyPages(info.pages);
-    setChars(results);
-  }
   async function handleClickNextBtn() {
-    const data = await goToOtherPage(nextPage);
-    setStateValues(data);
+    const data = await goToOtherPage(next);
+    setChars(data);
     setHideShowMore(false);
-    // set the show more button back to visible
   }
   async function handleClickPrevBtn() {
-    const data = await goToOtherPage(prevPage);
+    const data = await goToOtherPage(prev);
+    setChars(data);
     setHideShowMore(false);
-    setStateValues(data);
   }
-
-  // useEffect(() => {
-  //   console.log(prevPage);
-  //   console.log(nextPage);
-  //   console.log(qtyPages);
-  //   console.log(charCount);
-  // }, [prevPage, nextPage, qtyPages, charCount]);
 
   return (
     <div className="page-nav">
