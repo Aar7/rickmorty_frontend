@@ -37,14 +37,14 @@
   padding: 10px;
   align-content: flex-start;
 }
-.item-modal__subtext {
+/* .item-modal__subtext {
   margin: 0;
   text-align: left;
-}
+} */
 
-.item-modal__subtext__head {
+/* .item-modal__subtext__head {
   color: rgb(0, 119, 255);
-}
+} */
 
 .item-modal__image {
   border-top-right-radius: 10px;

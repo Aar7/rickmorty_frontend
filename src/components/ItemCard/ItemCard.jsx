@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import "./ItemCard.css";
-import { NavigationContext } from "../../assets/contexts/NavigationContext";
+import { NavigationContext } from "../../contexts/NavigationContext";
 
 function ItemCard({ cardData }) {
   /*

@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import cross from "../../assets/images/x.svg";
 import "./ItemModal.css";
+import InfoText from "../InfoText/InfoText";
+import { CHAR_OBJ_KEYS } from "../../utils/config";
 
 function ItemModal({
   activeModal,
@@ -8,17 +10,40 @@ function ItemModal({
   handleCloseModal,
   cardData,
 }) {
-  console.log(activeModal);
+  const [textItems, setTextItems] = useState([]);
+  // console.log(activeModal);
+  console.log(cardData);
+  // const cardDataKeys = Object.keys(cardData);
+  // console.log(cardDataKeys);
+  // cardDataKeys.forEach((key) => {
+  //   // console.log(`${key}: ${cardData[key]}`);
+  //   console.log(key, cardData[key]);
+  // });
+
+  useEffect(() => {
+    setTextItems(
+      CHAR_OBJ_KEYS.map((key) => {
+        if (typeof cardData[key] == "object") {
+          // console.log(key);
+          const jsonObj = JSON.stringify(cardData[key]);
+          // console.log(jsonObj);
+          return <InfoText textKey={key} textData={jsonObj} />;
+        }
+        return <InfoText textKey={key} textData={cardData[key]} />;
+      })
+    );
+  }, [cardData]);
 
   useEffect(() => {
     setActiveModal(!activeModal ? "" : activeModal);
+    // console.log(textItems);
   }, [activeModal]);
 
-  useEffect(() => {
-    if (cardData) {
-      console.log(cardData);
-    }
-  }, [cardData]);
+  // useEffect(() => {
+  //   if (cardData) {
+  //     console.log(cardData);
+  //   }
+  // }, [cardData]);
 
   return (
     <>
@@ -37,29 +62,7 @@ function ItemModal({
             }}
           />
           <img className="item-modal__image" src={cardData?.image} />
-          <div className="item-modal__info">
-            <p className="item-modal__subtext">
-              <span className="item-modal__subtext__head">Name:</span>{" "}
-              {cardData?.name}
-            </p>
-            <p className="item-modal__subtext">
-              <span className="item-modal__subtext__head">Status:</span>{" "}
-              {cardData?.status}
-            </p>
-            <p className="item-modal__subtext">
-              <span className="item-modal__subtext__head">Species:</span>{" "}
-              {cardData?.species}
-            </p>
-            <p className="item-modal__subtext">
-              <span className="item-modal__subtext__head">Type:</span>{" "}
-              {cardData?.type}
-            </p>
-            <p className="item-modal__subtext">
-              <span className="item-modal__subtext__head">Gender:</span>{" "}
-              {cardData?.gender}
-            </p>
-            {/* <p className="item-modal__">{cardData.}</p> */}
-          </div>
+          <div className="item-modal__info">{textItems}</div>
         </div>
       </div>
     </>

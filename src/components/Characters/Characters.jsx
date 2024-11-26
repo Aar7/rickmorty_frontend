@@ -2,9 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import "./Characters.css";
 import ItemCard from "../ItemCard/ItemCard";
 import QueryWrapper from "../QueryWrapper/QueryWrapper";
-import { NavigationContext } from "../../assets/contexts/NavigationContext";
+import { NavigationContext } from "../../contexts/NavigationContext";
 import Preloader from "../Preloader/Preloader";
 import ItemModal from "../ItemModal/ItemModal";
+import { SHOW_CARDS } from "../../utils/config";
 
 function Characters() {
   const navContext = useContext(NavigationContext);
@@ -13,7 +14,6 @@ function Characters() {
   const [charCards, setCharCards] = useState([]);
   const [shownCards, setShownCards] = useState([]);
   // const [hideShowMore, setHideShowMore] = useState(false);
-  let showThisManyCards = 3;
 
   useEffect(() => {
     if (chars && chars.results) {
@@ -31,14 +31,14 @@ function Characters() {
   }, [chars]);
 
   useEffect(() => {
-    setShownCards(charCards.slice(0, showThisManyCards));
+    setShownCards(charCards.slice(0, SHOW_CARDS));
   }, [charCards]);
 
   function handleClickShowMore() {
     if (shownCards.length < charCards.length) {
-      setShownCards(charCards.slice(0, shownCards.length + showThisManyCards));
+      setShownCards(charCards.slice(0, shownCards.length + SHOW_CARDS));
     }
-    if (shownCards.length + showThisManyCards >= charCards.length) {
+    if (shownCards.length + SHOW_CARDS >= charCards.length) {
       setHideShowMore(true);
     }
     // console.log(shownCards.length);
@@ -50,7 +50,6 @@ function Characters() {
     <>
       {/* {console.log(shownCards)} */}
       <div className="characters">
-        <p>Characters go here</p>
         <QueryWrapper
           handleClickShowMore={handleClickShowMore}
           hideShowMore={hideShowMore}

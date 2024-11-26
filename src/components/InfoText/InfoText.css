@@ -1,0 +1,12 @@
+.info-text {
+  margin: 0;
+  text-align: left;
+}
+
+.info-text__subtext {
+  color: rgb(0, 119, 255);
+}
+
+.info-text__url {
+  text-decoration: none;
+}

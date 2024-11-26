@@ -9,8 +9,9 @@ import Locations from "../Locations/Locations";
 import Episodes from "../Episodes/Episodes";
 import Footer from "../Footer/Footer";
 import * as ram from "../../utils/ramApi";
-import { NavigationContext } from "../../assets/contexts/NavigationContext";
+import { NavigationContext } from "../../contexts/NavigationContext";
 import ItemModal from "../ItemModal/ItemModal";
+import InfoText from "../InfoText/InfoText";
 
 function App() {
   const [chars, setChars] = useState({
@@ -86,6 +87,7 @@ function App() {
           setHideShowMore,
           handleClickCard,
           activeModal,
+          cardData,
         }}
       >
         <Header />

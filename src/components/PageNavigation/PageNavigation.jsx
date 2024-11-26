@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import "./PageNavigation.css";
-import { NavigationContext } from "../../assets/contexts/NavigationContext";
+import { NavigationContext } from "../../contexts/NavigationContext";
 import arrowRight from "../../assets/images/arrow-Right.svg";
 import arrowLeft from "../../assets/images/arrow-left.svg";
 import { goToOtherPage } from "../../utils/ramApi";
