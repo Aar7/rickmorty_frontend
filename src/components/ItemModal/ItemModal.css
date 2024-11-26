@@ -28,6 +28,8 @@
   right: 10px;
   background-color: rgba(192, 192, 32, 0.4);
   border-radius: 50%;
+
+  cursor: pointer;
 }
 
 .item-modal__info {
@@ -37,14 +39,6 @@
   padding: 10px;
   align-content: flex-start;
 }
-/* .item-modal__subtext {
-  margin: 0;
-  text-align: left;
-} */
-
-/* .item-modal__subtext__head {
-  color: rgb(0, 119, 255);
-} */
 
 .item-modal__image {
   border-top-right-radius: 10px;

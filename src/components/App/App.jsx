@@ -73,6 +73,22 @@ function App() {
     getInitialData();
   }, []);
 
+  useEffect(() => {
+    if (!activeModal) return;
+
+    function handlePressEsc(event) {
+      if (event.key == "Escape") {
+        handleCloseModal();
+      }
+    }
+
+    document.addEventListener("keydown", handlePressEsc);
+
+    return () => {
+      document.removeEventListener("keydown", handlePressEsc);
+    };
+  }, [activeModal]);
+
   return (
     <>
       <NavigationContext.Provider

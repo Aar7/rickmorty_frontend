@@ -51,8 +51,16 @@ function ItemModal({
         className={`item-modal-wrapper ${
           activeModal == "item-modal" ? "modal_open" : ""
         }`}
+        onClick={() => {
+          handleCloseModal();
+        }}
       >
-        <div className={`item-modal`}>
+        <div
+          className={`item-modal`}
+          onClick={(event) => {
+            event.stopPropagation();
+          }}
+        >
           <img
             className="item-modal__close-button"
             src={cross}
