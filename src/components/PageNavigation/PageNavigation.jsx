@@ -5,7 +5,7 @@ import arrowRight from "../../assets/images/arrow-Right.svg";
 import arrowLeft from "../../assets/images/arrow-left.svg";
 import { goToOtherPage } from "../../utils/ramApi";
 
-function PageNavigation() {
+function PageNavigation({ cardData, setCardData }) {
   const [prevNavBtnClasses, setPrevNavBtnClasses] =
     useState("page-nav__button");
   const [nextNavBtnClasses, setNextNavBtnClasses] =
@@ -14,21 +14,21 @@ function PageNavigation() {
   const { chars, setChars, hideShowMore, setHideShowMore } =
     useContext(NavigationContext);
 
-  const { count, next, pages, prev } = chars?.info || {};
+  const { count, next, pages, prev } = cardData?.info || {};
   useEffect(() => {
-    // console.log(prev, next);
+    console.log(prev, next);
     setPrevNavBtnClasses(
       prev ? "page-nav__button" : "page-nav__button page-nav__button_disabled"
     );
     setNextNavBtnClasses(
       next ? "page-nav__button" : "page-nav__button page-nav__button_disabled"
     );
-  }, [chars]);
+  }, [cardData]);
 
   async function handleClickNextBtn() {
     if (next) {
       const data = await goToOtherPage(next);
-      setChars(data);
+      setCardData(data);
       setHideShowMore(false);
     }
   }
@@ -36,7 +36,7 @@ function PageNavigation() {
   async function handleClickPrevBtn() {
     if (prev) {
       const data = await goToOtherPage(prev);
-      setChars(data);
+      setCardData(data);
       setHideShowMore(false);
     }
   }

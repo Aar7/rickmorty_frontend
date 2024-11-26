@@ -1,7 +1,13 @@
 import PageNavigation from "../PageNavigation/PageNavigation";
 import "./QueryWrapper.css";
 
-function QueryWrapper({ handleClickShowMore, hideShowMore, children }) {
+function QueryWrapper({
+  handleClickShowMore,
+  hideShowMore,
+  cardData,
+  setCardData,
+  children,
+}) {
   let showMoreButtonClasses = "query-wrapper__show-more";
 
   if (hideShowMore) {
@@ -22,7 +28,7 @@ function QueryWrapper({ handleClickShowMore, hideShowMore, children }) {
           Show more...
         </button>
       </ul>
-      <PageNavigation />
+      <PageNavigation cardData={cardData} setCardData={setCardData} />
     </>
   );
 }

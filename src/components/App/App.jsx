@@ -11,15 +11,20 @@ import Footer from "../Footer/Footer";
 import * as ram from "../../utils/ramApi";
 import { NavigationContext } from "../../contexts/NavigationContext";
 import ItemModal from "../ItemModal/ItemModal";
-import InfoText from "../InfoText/InfoText";
 
 function App() {
   const [chars, setChars] = useState({
     info: { count: 0, pages: 0, next: null, prev: null },
     results: [],
   });
-  const [locs, setLocs] = useState({});
-  const [epis, setEpis] = useState({});
+  const [locs, setLocs] = useState({
+    info: { count: 0, pages: 0, next: null, prev: null },
+    results: [],
+  });
+  const [epis, setEpis] = useState({
+    info: { count: 0, pages: 0, next: null, prev: null },
+    results: [],
+  });
   const [loading, setLoading] = useState(true);
   const [hideShowMore, setHideShowMore] = useState(false);
   const [activeModal, setActiveModal] = useState("");
@@ -59,11 +64,11 @@ function App() {
       try {
         const characterData = await ram.getAllCharacters();
         // const locationData = await ram.getAllLocations();
-        // const episodeData = await ram.getAllEpisodes();
+        const episodeData = await ram.getAllEpisodes();
 
         setChars(characterData);
         // setLocs(locationData);
-        // setEpis(episodeData);
+        setEpis(episodeData);
         setLoading(false);
       } catch (error) {
         console.error("Requested data could not be retrieved", error);

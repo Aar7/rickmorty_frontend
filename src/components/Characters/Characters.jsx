@@ -4,16 +4,14 @@ import ItemCard from "../ItemCard/ItemCard";
 import QueryWrapper from "../QueryWrapper/QueryWrapper";
 import { NavigationContext } from "../../contexts/NavigationContext";
 import Preloader from "../Preloader/Preloader";
-import ItemModal from "../ItemModal/ItemModal";
 import { SHOW_CARDS } from "../../utils/config";
 
 function Characters() {
   const navContext = useContext(NavigationContext);
-  const { chars, hideShowMore, setHideShowMore, activeModal } = navContext;
+  const { chars, setChars, hideShowMore, setHideShowMore } = navContext;
   const [loading, setLoading] = useState(true);
   const [charCards, setCharCards] = useState([]);
   const [shownCards, setShownCards] = useState([]);
-  // const [hideShowMore, setHideShowMore] = useState(false);
 
   useEffect(() => {
     if (chars && chars.results) {
@@ -26,7 +24,8 @@ function Characters() {
           return <ItemCard key={item.id} cardData={item} />;
         })
       );
-      setLoading(chars.results.length < 20);
+      // setLoading(chars.results.length < 20);
+      setLoading(chars.results.length == 0);
     }
   }, [chars]);
 
@@ -41,9 +40,6 @@ function Characters() {
     if (shownCards.length + SHOW_CARDS >= charCards.length) {
       setHideShowMore(true);
     }
-    // console.log(shownCards.length);
-    // console.log(charCards.length);
-    // console.log(hideShowMore);
   }
 
   return (
@@ -53,6 +49,8 @@ function Characters() {
         <QueryWrapper
           handleClickShowMore={handleClickShowMore}
           hideShowMore={hideShowMore}
+          cardData={chars}
+          setCardData={setChars}
         >
           {loading ? <Preloader /> : shownCards}
         </QueryWrapper>
