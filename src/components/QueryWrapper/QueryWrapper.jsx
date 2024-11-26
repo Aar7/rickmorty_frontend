@@ -16,7 +16,7 @@ function QueryWrapper({ handleClickShowMore, hideShowMore, children }) {
           className={showMoreButtonClasses}
           onClick={() => {
             handleClickShowMore();
-            console.log(hideShowMore);
+            // console.log(hideShowMore);
           }}
         >
           Show more...

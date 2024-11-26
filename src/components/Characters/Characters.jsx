@@ -4,10 +4,11 @@ import ItemCard from "../ItemCard/ItemCard";
 import QueryWrapper from "../QueryWrapper/QueryWrapper";
 import { NavigationContext } from "../../assets/contexts/NavigationContext";
 import Preloader from "../Preloader/Preloader";
+import ItemModal from "../ItemModal/ItemModal";
 
 function Characters() {
   const navContext = useContext(NavigationContext);
-  const { chars, hideShowMore, setHideShowMore } = navContext;
+  const { chars, hideShowMore, setHideShowMore, activeModal } = navContext;
   const [loading, setLoading] = useState(true);
   const [charCards, setCharCards] = useState([]);
   const [shownCards, setShownCards] = useState([]);
@@ -16,9 +17,9 @@ function Characters() {
 
   useEffect(() => {
     if (chars && chars.results) {
-      console.log(chars);
+      // console.log(chars);
       const { results } = chars;
-      console.log(results);
+      // console.log(results);
       setCharCards(
         results.map((item) => {
           // console.log(item);
@@ -47,7 +48,7 @@ function Characters() {
 
   return (
     <>
-      {console.log(shownCards)}
+      {/* {console.log(shownCards)} */}
       <div className="characters">
         <p>Characters go here</p>
         <QueryWrapper

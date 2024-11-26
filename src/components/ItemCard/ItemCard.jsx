@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import "./ItemCard.css";
+import { NavigationContext } from "../../assets/contexts/NavigationContext";
 
 function ItemCard({ cardData }) {
   /*
@@ -13,6 +15,7 @@ function ItemCard({ cardData }) {
   which I want to show.
   */
   // console.log("CardData: ", cardData);
+  const { handleClickCard } = useContext(NavigationContext);
   let imgClasses = "itemcard__charImg itemcard__charImg_hidden";
   let itemCardImage;
   // This conditional will set the classes for the img tag in the returned markup.
@@ -27,7 +30,12 @@ function ItemCard({ cardData }) {
   }
   return (
     <>
-      <li className="itemcard">
+      <li
+        className="itemcard"
+        onClick={() => {
+          handleClickCard(cardData);
+        }}
+      >
         <img className={imgClasses} src={itemCardImage} />
         <div className="itemcard__cardinfo">
           <p className="itemcard__name">{`${cardData.name}`}</p>

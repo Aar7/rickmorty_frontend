@@ -10,6 +10,7 @@ import Episodes from "../Episodes/Episodes";
 import Footer from "../Footer/Footer";
 import * as ram from "../../utils/ramApi";
 import { NavigationContext } from "../../assets/contexts/NavigationContext";
+import ItemModal from "../ItemModal/ItemModal";
 
 function App() {
   const [chars, setChars] = useState({
@@ -20,7 +21,38 @@ function App() {
   const [epis, setEpis] = useState({});
   const [loading, setLoading] = useState(true);
   const [hideShowMore, setHideShowMore] = useState(false);
+  const [activeModal, setActiveModal] = useState("");
+  const [cardData, setCardData] = useState({
+    id: 0,
+    name: "",
+    status: "",
+    species: "",
+    type: "",
+    gender: "",
+    origin: {
+      name: "",
+      url: "",
+    },
+    location: {
+      name: "",
+      url: "",
+    },
+    image: "",
+    episode: [],
+    url: "",
+    created: "",
+  });
 
+  function handleClickCard(card) {
+    setActiveModal("item-modal");
+    setCardData(card);
+    // pass card data to this function from the ItemCard comp
+    // ...then set the active modal to the item modal where the data will be populated there
+  }
+
+  function handleCloseModal() {
+    setActiveModal("");
+  }
   useEffect(() => {
     async function getInitialData() {
       try {
@@ -52,24 +84,23 @@ function App() {
           setEpis,
           hideShowMore,
           setHideShowMore,
+          handleClickCard,
+          activeModal,
         }}
       >
         <Header />
         <Routes>
-          <Route
-            path="/"
-            element={
-              loading ? (
-                <Preloader />
-              ) : (
-                <Main /* char={chars[0]} loc={locs[0]} epi={epis[0]} */ />
-              )
-            }
-          />
+          <Route path="/" element={loading ? <Preloader /> : <Main />} />
           <Route path="/characters" element={<Characters />} />
           <Route path="/locations" element={<Locations />} />
           <Route path="/episodes" element={<Episodes />} />
         </Routes>
+        <ItemModal
+          activeModal={activeModal}
+          setActiveModal={setActiveModal}
+          handleCloseModal={handleCloseModal}
+          cardData={cardData}
+        />
         <Footer />
       </NavigationContext.Provider>
     </>
