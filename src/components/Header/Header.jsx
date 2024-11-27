@@ -7,11 +7,19 @@ function Header(props) {
     <>
       <header className="header">
         <div className="header__wrapper">
-          <img className="header__image_rick" src={rickHead} alt="" />
+          <img
+            className="header__image header__image_rick"
+            src={rickHead}
+            alt=""
+          />
           <Link to="/" className="header__title">
             Rick and Morty
           </Link>
-          <img className="header__image_morty" src={mortyHead} alt="" />
+          <img
+            className="header__image header__image_morty"
+            src={mortyHead}
+            alt=""
+          />
         </div>
         <nav className="header__tabs">
           <NavLink

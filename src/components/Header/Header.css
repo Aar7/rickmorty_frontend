@@ -20,6 +20,8 @@
 .header__wrapper {
   display: flex;
   flex-direction: row;
+  /* align-content: center; */
+  align-items: center;
 }
 
 .header__title {
@@ -27,19 +29,22 @@
   margin: 0;
   text-align: center;
   margin: 0 25px 0 25px;
-  /* line-height: 2; */
+
   text-decoration: none;
   color: black;
+
+  text-wrap: nowrap;
+
+  font-size: clamp(30px, 5vw, 60px);
+  /* font-size: clamp(3vw, 5vw, 12vw); */
+  /* font-size: clamp(3vw, 5vw, 12vw); */
 }
 
-.header__image_morty {
-  height: 100px;
-  width: 100px;
-}
-
-.header__image_rick {
-  height: 100px;
-  width: 100px;
+.header__image {
+  /* height: 100px; */
+  /* width: 100px; */
+  width: calc(8vw + 30px);
+  max-width: 100px;
 }
 
 .header__tabs {
@@ -49,7 +54,11 @@
 }
 
 .header__tabs_button {
-  width: 143px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  /* width: 100%; */
   height: 60px;
   border-radius: 100px;
   border: solid rgba(47, 113, 229, 1) 2px;
@@ -61,9 +70,16 @@
   color: rgba(47, 113, 229, 1);
   background-color: white;
 
+  padding: 2px;
+
+  box-sizing: border-box;
+
   font-family: "Exo", "Inter";
-  font-size: 20px;
+  /* font-size: 20px; */
+  font-size: clamp(13px, 0.9vw, 18px);
+  /* font-size: fit-content; */
   font-weight: normal;
+  /* text-justify: auto; */
 }
 
 .header__tabs_button:hover {
@@ -73,4 +89,32 @@
 
 .header__tabs_button:last-of-type {
   margin-right: 0;
+}
+
+@media screen and (max-width: 1068px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    /* align-content: center; */
+  }
+}
+
+@media screen and (max-width: 435px) {
+  .header {
+    padding: 25px 10px;
+  }
+  .header__image {
+    /* overflow: hidden; */
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    /* width: 0; */
+  }
+
+  .header__tabs_button {
+    /* width: 100px;
+    height: 40px; */
+    width: 75px;
+    height: 30px;
+  }
 }
