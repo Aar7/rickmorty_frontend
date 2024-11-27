@@ -13,7 +13,7 @@ function Header(props) {
             alt=""
           />
           <Link to="/" className="header__title">
-            Rick and Morty
+            RaMHub
           </Link>
           <img
             className="header__image header__image_morty"

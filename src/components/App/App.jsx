@@ -8,6 +8,7 @@ import Characters from "../Characters/Characters";
 import Locations from "../Locations/Locations";
 import Episodes from "../Episodes/Episodes";
 import Footer from "../Footer/Footer";
+import Credits from "../Credits/Credits";
 import * as ram from "../../utils/ramApi";
 import { NavigationContext } from "../../contexts/NavigationContext";
 import ItemModal from "../ItemModal/ItemModal";
@@ -117,6 +118,7 @@ function App() {
           <Route path="/characters" element={<Characters />} />
           <Route path="/locations" element={<Locations />} />
           <Route path="/episodes" element={<Episodes />} />
+          <Route path="/credits" element={<Credits />} />
         </Routes>
         <ItemModal
           activeModal={activeModal}

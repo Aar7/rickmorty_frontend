@@ -15,3 +15,7 @@
   box-sizing: border-box;
   border-radius: 10px;
 }
+
+.footer__credits {
+  text-decoration: none;
+}

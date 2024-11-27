@@ -1,0 +1,25 @@
+.credits {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  margin-top: 15px;
+  /* padding-left: 75px; */
+
+  box-sizing: border-box;
+
+  font-family: "Exo", "Inter";
+  font-size: 20px;
+  font-style: oblique;
+}
+
+.credits__link {
+  /* margin-top: 20px; */
+  padding: 2px;
+  text-decoration: none;
+}
+
+.credits__home-link {
+  align-self: flex-end;
+  text-decoration: none;
+}
