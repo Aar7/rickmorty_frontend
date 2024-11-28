@@ -49,3 +49,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          branch: gh-pages # Ensure it's the correct branch
+          folder: dist # Ensure it points to the build folder
+
