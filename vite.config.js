@@ -7,4 +7,5 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  // base: "https://aar7.github.io/rickmorty_frontend/",
 });
