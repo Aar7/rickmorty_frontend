@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import "./PageNavigation.css";
 import { NavigationContext } from "../../contexts/NavigationContext";
-import arrowRight from "../../assets/images/arrow-Right.svg";
+import arrowRight from "../../assets/images/arrow-right.svg";
 import arrowLeft from "../../assets/images/arrow-left.svg";
 import { goToOtherPage } from "../../utils/ramApi";
 
