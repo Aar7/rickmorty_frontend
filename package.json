@@ -1,12 +1,12 @@
 {
   "name": "rickmorty",
   "private": true,
-  "homepage": "https://aar7.github.io/",
+  "homepage": "https://ramhub.crabdance.com",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "npm run build && scp -r ./dist/* aaronmeighoo1@ramhub.crabdance.com:/home/aaronmeighoo1/final_project",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",

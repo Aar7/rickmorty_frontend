@@ -10,7 +10,7 @@ Responsive design is achieved via the use of media queries and other responsive 
 
 ### Other Links
 
-[Site on GitHub Pages]
+Link to site: [ramhub.crabdance.com](https://ramhub.crabdance.com/)
 
 ### Font Licenses
 
