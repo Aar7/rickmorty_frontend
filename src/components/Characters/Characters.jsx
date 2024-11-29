@@ -8,7 +8,8 @@ import { SHOW_CARDS } from "../../utils/config";
 
 function Characters() {
   const navContext = useContext(NavigationContext);
-  const { chars, setChars, hideShowMore, setHideShowMore } = navContext;
+  const { chars, setChars, hideShowMore, setHideShowMore, location } =
+    navContext;
   const [loading, setLoading] = useState(true);
   const [charCards, setCharCards] = useState([]);
   const [shownCards, setShownCards] = useState([]);
@@ -28,6 +29,10 @@ function Characters() {
       setLoading(chars.results.length == 0);
     }
   }, [chars]);
+
+  useEffect(() => {
+    setHideShowMore(false);
+  }, [location]);
 
   useEffect(() => {
     setShownCards(charCards.slice(0, SHOW_CARDS));

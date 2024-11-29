@@ -9,7 +9,6 @@ export const charObjNested = {
 };
 
 export const CHAR_OBJ_KEYS = [
-  // "id",
   "name",
   "gender",
   "species",
@@ -20,3 +19,13 @@ export const CHAR_OBJ_KEYS = [
   "location",
   "origin",
 ];
+
+export const EPI_OBJ_KEYS = [
+  "name",
+  "episode",
+  "air_date",
+  // "characters",
+  // "url",
+];
+
+export const LOC_OBJ_KEYS = [];

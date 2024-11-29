@@ -1,7 +1,7 @@
 import "./InfoText.css";
 
 function InfoText({ textKey, textData }) {
-  if (textKey == "origin" || textKey == "location") {
+  if (textKey == "origin" || textKey == "location" || textKey == "characters") {
     const parsedData = JSON.parse(textData);
     // console.log(textData);
     textData = parsedData.name;

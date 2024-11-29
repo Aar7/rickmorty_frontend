@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import Preloader from "../Preloader/Preloader";
 import Header from "../Header/Header";
@@ -14,6 +14,7 @@ import { NavigationContext } from "../../contexts/NavigationContext";
 import ItemModal from "../ItemModal/ItemModal";
 
 function App() {
+  const location = useLocation();
   const [chars, setChars] = useState({
     info: { count: 0, pages: 0, next: null, prev: null },
     results: [],
@@ -30,24 +31,25 @@ function App() {
   const [hideShowMore, setHideShowMore] = useState(false);
   const [activeModal, setActiveModal] = useState("");
   const [cardData, setCardData] = useState({
-    id: 0,
-    name: "",
-    status: "",
-    species: "",
-    type: "",
-    gender: "",
-    origin: {
-      name: "",
-      url: "",
-    },
-    location: {
-      name: "",
-      url: "",
-    },
-    image: "",
-    episode: [],
-    url: "",
-    created: "",
+    // id: 0,
+    // name: "",
+    // status: "",
+    // species: "",
+    // type: "",
+    // gender: "",
+    // origin: {
+    //   name: "",
+    //   url: "",
+    // },
+    // location: {
+    //   name: "",
+    //   url: "",
+    // },
+    // image: "",
+    // episode: [],
+    // url: "",
+    // created: "",
+    // air_date: "",
   });
 
   function handleClickCard(card) {
@@ -95,6 +97,11 @@ function App() {
     };
   }, [activeModal]);
 
+  useEffect(() => {
+    // console.log(`Current Location: ${location}`);
+    console.log(location);
+  }, [location]);
+
   return (
     <>
       <NavigationContext.Provider
@@ -110,6 +117,7 @@ function App() {
           handleClickCard,
           activeModal,
           cardData,
+          location,
         }}
       >
         <Header />
@@ -125,6 +133,7 @@ function App() {
           setActiveModal={setActiveModal}
           handleCloseModal={handleCloseModal}
           cardData={cardData}
+          location={location}
         />
         <Footer />
       </NavigationContext.Provider>

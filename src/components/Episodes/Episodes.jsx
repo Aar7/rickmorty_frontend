@@ -9,7 +9,7 @@ import ItemCard from "../ItemCard/ItemCard";
 function Episodes() {
   const navContext = useContext(NavigationContext);
 
-  const { epis, setEpis, hideShowMore, setHideShowMore } = navContext;
+  const { epis, setEpis, hideShowMore, setHideShowMore, location } = navContext;
 
   const [loading, setLoading] = useState(true);
   const [epiCards, setEpiCards] = useState([]);
@@ -17,7 +17,7 @@ function Episodes() {
 
   useEffect(() => {
     if (epis && epis.results) {
-      console.log(epis);
+      // console.log(epis);
       const { results } = epis;
       // console.log(results);
       setEpiCards(
@@ -29,7 +29,12 @@ function Episodes() {
       // setLoading(epis.results.length < 20);
       setLoading(epis.results.length == 0);
     }
+    // console.log(epis);
   }, [epis]);
+
+  useEffect(() => {
+    setHideShowMore(false);
+  }, [location]);
 
   useEffect(() => {
     setShownCards(epiCards.slice(0, SHOW_CARDS));
