@@ -22,14 +22,17 @@ function ItemModal({
 
   useEffect(() => {
     setTextItems(
-      CHAR_OBJ_KEYS.map((key) => {
+      CHAR_OBJ_KEYS.map((key, index) => {
         if (typeof cardData[key] == "object") {
           // console.log(key);
           const jsonObj = JSON.stringify(cardData[key]);
           // console.log(jsonObj);
-          return <InfoText textKey={key} textData={jsonObj} />;
+
+          // return <InfoText key={index} textKey={key} textData={jsonObj} />;
+          return <InfoText key={key} textKey={key} textData={jsonObj} />;
         }
-        return <InfoText textKey={key} textData={cardData[key]} />;
+        // return <InfoText key={index} textKey={key} textData={cardData[key]} />;
+        return <InfoText key={key} textKey={key} textData={cardData[key]} />;
       })
     );
   }, [cardData]);

@@ -9,6 +9,7 @@ export const charObjNested = {
 };
 
 export const CHAR_OBJ_KEYS = [
+  // "id",
   "name",
   "gender",
   "species",
