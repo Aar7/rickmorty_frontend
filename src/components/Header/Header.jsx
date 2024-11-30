@@ -8,7 +8,7 @@ function Header(props) {
       <header className="header">
         <div className="header__wrapper">
           <img
-            className="header__image header__image_rick"
+            className="header__image header__image_name_rick"
             src={rickHead}
             alt=""
           />
@@ -16,28 +16,19 @@ function Header(props) {
             RaMHub
           </Link>
           <img
-            className="header__image header__image_morty"
+            className="header__image header__image_name_morty"
             src={mortyHead}
             alt=""
           />
         </div>
         <nav className="header__tabs">
-          <NavLink
-            to="/characters"
-            className="header__tabs_chars header__tabs_button"
-          >
+          <NavLink to="/characters" className="header__tabs-button">
             Characters
           </NavLink>
-          <NavLink
-            to="/locations"
-            className="header__tabs_locs header__tabs_button"
-          >
+          <NavLink to="/locations" className="header__tabs-button">
             Locations
           </NavLink>
-          <NavLink
-            to="/episodes"
-            className="header__tabs_epis header__tabs_button"
-          >
+          <NavLink to="/episodes" className="header__tabs-button">
             Episodes
           </NavLink>
         </nav>

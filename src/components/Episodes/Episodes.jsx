@@ -51,7 +51,7 @@ function Episodes() {
 
   return (
     <>
-      <div className="characters">
+      <div className="episodes">
         <QueryWrapper
           handleClickShowMore={handleClickShowMore}
           hideShowMore={hideShowMore}
