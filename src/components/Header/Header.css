@@ -24,13 +24,16 @@
   align-items: center;
 }
 
+.header__title-link {
+  text-decoration: none;
+}
+
 .header__title {
   align-self: center;
   margin: 0;
   text-align: center;
   margin: 0 25px 0 25px;
 
-  text-decoration: none;
   color: black;
 
   text-wrap: nowrap;

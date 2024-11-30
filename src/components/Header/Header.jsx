@@ -2,7 +2,7 @@ import "./Header.css";
 import rickHead from "../../assets/images/icons8-rick-sanchez.svg";
 import mortyHead from "../../assets/images/icons8-morty-smith.svg";
 import { Link, NavLink } from "react-router-dom";
-function Header(props) {
+function Header() {
   return (
     <>
       <header className="header">
@@ -12,8 +12,8 @@ function Header(props) {
             src={rickHead}
             alt=""
           />
-          <Link to="/" className="header__title">
-            RaMHub
+          <Link to="/" className="header__title-link">
+            <h1 className="header__title">RaMHub</h1>
           </Link>
           <img
             className="header__image header__image_name_morty"
