@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Exo";
+  src: url("./Exo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Turret Road";
+  src: url("./TurretRoad-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

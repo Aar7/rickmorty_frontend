@@ -18,7 +18,7 @@
   margin: 0;
   padding: 10px;
   border: none;
-  font-family: "Exo", "Inter";
+  font-family: "Exo", sans-serif;
   cursor: pointer;
   background-color: transparent;
 }

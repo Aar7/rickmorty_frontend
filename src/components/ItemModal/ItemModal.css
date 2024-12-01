@@ -18,7 +18,7 @@
   width: 300px;
   background-color: rgba(192, 192, 32, 0.8);
   border-radius: 10px;
-  font-family: "Exo", "Inter";
+  font-family: "Exo", sans-serif;
   font-size: 16px;
 }
 

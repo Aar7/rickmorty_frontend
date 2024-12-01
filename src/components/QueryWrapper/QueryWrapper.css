@@ -22,7 +22,7 @@
   color: rgba(47, 113, 229, 1);
   background-color: white;
 
-  font-family: "Exo", "Inter";
+  font-family: "Exo", sans-serif;
   font-size: 16px;
   font-weight: normal;
 }
