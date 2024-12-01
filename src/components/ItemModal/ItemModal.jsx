@@ -12,34 +12,22 @@ function ItemModal({
   location,
 }) {
   const [objFields, setObjFields] = useState([]);
-  // let objectFields = [];
+  const [textItems, setTextItems] = useState([]);
+
   useEffect(() => {
     if (location.pathname == "/characters") {
-      // objectFields = CHAR_OBJ_KEYS;
       setObjFields(CHAR_OBJ_KEYS);
     } else if (location.pathname == "/episodes") {
-      // objectFields = EPI_OBJ_KEYS;
       setObjFields(EPI_OBJ_KEYS);
     } else if (location.pathname == "/locations") {
-      // objectFields = LOC_OBJ_KEYS;
       setObjFields(LOC_OBJ_KEYS);
     }
   }, [location]);
 
-  // console.log(objectFields);
-  const [textItems, setTextItems] = useState([]);
-  // console.log(activeModal);
   console.log(cardData);
-  // const cardDataKeys = Object.keys(cardData);
-  // console.log(cardDataKeys);
-  // cardDataKeys.forEach((key) => {
-  //   // console.log(`${key}: ${cardData[key]}`);
-  //   console.log(key, cardData[key]);
-  // });
 
   useEffect(() => {
     setTextItems(
-      // CHAR_OBJ_KEYS.map((key) => {
       objFields.map((key) => {
         if (typeof cardData[key] == "object") {
           // console.log(key);
@@ -56,12 +44,6 @@ function ItemModal({
     setActiveModal(!activeModal ? "" : activeModal);
     // console.log(textItems);
   }, [activeModal]);
-
-  // useEffect(() => {
-  //   if (cardData) {
-  //     console.log(cardData);
-  //   }
-  // }, [cardData]);
 
   return (
     <>
@@ -84,7 +66,6 @@ function ItemModal({
             src={cross}
             onClick={() => {
               handleCloseModal();
-              // console.log("close clicked");
             }}
           />
           <img className="item-modal__image" src={cardData?.image} />

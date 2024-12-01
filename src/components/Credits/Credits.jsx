@@ -1,7 +1,8 @@
 import "./Credits.css";
 import { credits } from "../../utils/credits";
 import { Link } from "react-router-dom";
-function Credits({ children }) {
+
+function Credits() {
   const creditKeys = Object.keys(credits);
   const creditArray = creditKeys.map((key) => {
     return (

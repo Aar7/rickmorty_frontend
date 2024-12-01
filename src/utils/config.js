@@ -2,7 +2,7 @@
 export const SHOW_CARDS = 3;
 
 // Character nested objects
-export const charObjNested = {
+export const NESTED_CHAR_OBJS = {
   episode: [],
   location: { name: "", url: "" },
   origin: { name: "", url: "" },
@@ -29,3 +29,27 @@ export const EPI_OBJ_KEYS = [
 ];
 
 export const LOC_OBJ_KEYS = [];
+
+// to be used if cardData state variable in App.jsx needs to be initialised as such (if
+// the current, emply initialisation object is causing the site to break)
+export const CARD_DATA_INITIAL_STATE = {
+  id: 0,
+  name: "",
+  status: "",
+  species: "",
+  type: "",
+  gender: "",
+  origin: {
+    name: "",
+    url: "",
+  },
+  location: {
+    name: "",
+    url: "",
+  },
+  image: "",
+  episode: [],
+  url: "",
+  created: "",
+  air_date: "",
+};

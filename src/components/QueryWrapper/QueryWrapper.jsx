@@ -14,8 +14,6 @@ function QueryWrapper({
     showMoreButtonClasses += " query-wrapper__show-more_disabled";
   }
 
-  // console.log(cardData);
-
   return (
     <>
       <ul className="query-wrapper">
@@ -25,7 +23,6 @@ function QueryWrapper({
           className={showMoreButtonClasses}
           onClick={() => {
             handleClickShowMore();
-            // console.log(hideShowMore);
           }}
         >
           Show more...

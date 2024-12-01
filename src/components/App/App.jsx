@@ -31,33 +31,11 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [hideShowMore, setHideShowMore] = useState(false);
   const [activeModal, setActiveModal] = useState("");
-  const [cardData, setCardData] = useState({
-    // id: 0,
-    // name: "",
-    // status: "",
-    // species: "",
-    // type: "",
-    // gender: "",
-    // origin: {
-    //   name: "",
-    //   url: "",
-    // },
-    // location: {
-    //   name: "",
-    //   url: "",
-    // },
-    // image: "",
-    // episode: [],
-    // url: "",
-    // created: "",
-    // air_date: "",
-  });
+  const [cardData, setCardData] = useState({});
 
   function handleClickCard(card) {
     setActiveModal("item-modal");
     setCardData(card);
-    // pass card data to this function from the ItemCard comp
-    // ...then set the active modal to the item modal where the data will be populated there
   }
 
   function handleCloseModal() {
@@ -97,11 +75,6 @@ function App() {
       document.removeEventListener("keydown", handlePressEsc);
     };
   }, [activeModal]);
-
-  useEffect(() => {
-    // console.log(`Current Location: ${location}`);
-    console.log(location);
-  }, [location]);
 
   return (
     <>

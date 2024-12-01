@@ -2,6 +2,7 @@ import "./Header.css";
 import rickHead from "../../assets/images/icons8-rick-sanchez.svg";
 import mortyHead from "../../assets/images/icons8-morty-smith.svg";
 import { Link, NavLink } from "react-router-dom";
+
 function Header() {
   return (
     <>

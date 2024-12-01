@@ -49,7 +49,6 @@ function Characters() {
 
   return (
     <>
-      {/* {console.log(shownCards)} */}
       <div className="characters">
         <QueryWrapper
           handleClickShowMore={handleClickShowMore}
