@@ -53,3 +53,8 @@ export const CARD_DATA_INITIAL_STATE = {
   created: "",
   air_date: "",
 };
+
+export const CLASSES = {
+  showMoreButton: "query-wrapper__show-more",
+  img: "itemcard__charImg itemcard__charImg_hidden",
+};

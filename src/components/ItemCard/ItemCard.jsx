@@ -1,5 +1,6 @@
-import { useContext } from "react";
 import "./ItemCard.css";
+import { CLASSES } from "../../utils/config";
+import { useContext } from "react";
 import { NavigationContext } from "../../contexts/NavigationContext";
 
 function ItemCard({ cardData }) {
@@ -16,7 +17,8 @@ function ItemCard({ cardData }) {
   */
   // console.log("CardData: ", cardData);
   const { handleClickCard } = useContext(NavigationContext);
-  let imgClasses = "itemcard__charImg itemcard__charImg_hidden";
+
+  let imgClasses = CLASSES.img;
   let itemCardImage;
   // This conditional will set the classes for the img tag in the returned markup.
   if (cardData.hasOwnProperty("species")) {

@@ -1,4 +1,5 @@
 import PageNavigation from "../PageNavigation/PageNavigation";
+import { CLASSES } from "../../utils/config";
 import "./QueryWrapper.css";
 
 function QueryWrapper({
@@ -8,7 +9,7 @@ function QueryWrapper({
   setCardData,
   children,
 }) {
-  let showMoreButtonClasses = "query-wrapper__show-more";
+  let showMoreButtonClasses = CLASSES.showMoreButton;
 
   if (hideShowMore) {
     showMoreButtonClasses += " query-wrapper__show-more_disabled";
