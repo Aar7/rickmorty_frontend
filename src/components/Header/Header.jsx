@@ -10,7 +10,7 @@ function Header() {
           <img
             className="header__image header__image_name_rick"
             src={rickHead}
-            alt=""
+            alt="Line-drawing of Rick Sanchez"
           />
           <Link to="/" className="header__title-link">
             <h1 className="header__title">RaMHub</h1>
@@ -18,7 +18,7 @@ function Header() {
           <img
             className="header__image header__image_name_morty"
             src={mortyHead}
-            alt=""
+            alt="Line-drawing of Morty Smith"
           />
         </div>
         <nav className="header__tabs">
