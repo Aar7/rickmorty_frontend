@@ -9,6 +9,7 @@ import Locations from "../Locations/Locations";
 import Episodes from "../Episodes/Episodes";
 import Footer from "../Footer/Footer";
 import Credits from "../Credits/Credits";
+import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import * as ram from "../../utils/ramApi";
 import { NavigationContext } from "../../contexts/NavigationContext";
 import ItemModal from "../ItemModal/ItemModal";
@@ -122,6 +123,7 @@ function App() {
       >
         <Header />
         <Routes>
+          <Route path="*" element={<NotFoundPage />} />
           <Route path="/" element={loading ? <Preloader /> : <Main />} />
           <Route path="/characters" element={<Characters />} />
           <Route path="/locations" element={<Locations />} />
