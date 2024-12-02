@@ -16,7 +16,7 @@ function PageNavigation({ cardData, setCardData }) {
 
   const { count, next, pages, prev } = cardData?.info || {};
   useEffect(() => {
-    console.log(prev, next);
+    // console.log(prev, next);
     setPrevNavBtnClasses(
       prev ? "page-nav__button" : "page-nav__button page-nav__button_disabled"
     );

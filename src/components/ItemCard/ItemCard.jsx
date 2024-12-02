@@ -35,7 +35,7 @@ function ItemCard({ cardData }) {
       <li
         className="itemcard"
         onClick={() => {
-          console.log(cardData);
+          // console.log(cardData);
           handleClickCard(cardData);
         }}
       >

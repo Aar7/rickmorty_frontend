@@ -22,23 +22,37 @@ function ItemModal({
     } else if (location.pathname == "/locations") {
       setObjFields(LOC_OBJ_KEYS);
     }
-  }, [location]);
-
-  console.log(cardData);
+  }, []);
 
   useEffect(() => {
-    setTextItems(
-      objFields.map((key) => {
-        if (typeof cardData[key] == "object") {
-          // console.log(key);
-          const jsonObj = JSON.stringify(cardData[key]);
-          // console.log(jsonObj);
-          return <InfoText key={key} textKey={key} textData={jsonObj} />;
-        }
-        return <InfoText key={key} textKey={key} textData={cardData[key]} />;
-      })
-    );
-  }, [cardData]);
+    if (location.pathname == "/characters") {
+      setObjFields(CHAR_OBJ_KEYS);
+    } else if (location.pathname == "/episodes") {
+      setObjFields(EPI_OBJ_KEYS);
+    } else if (location.pathname == "/locations") {
+      setObjFields(LOC_OBJ_KEYS);
+    }
+  }, [location]);
+
+  // console.log(cardData);
+
+  useEffect(() => {
+    if (objFields === undefined || cardData === undefined) {
+      console.log("Data undefined");
+    } else {
+      setTextItems(
+        objFields.map((key) => {
+          if (typeof cardData[key] == "object") {
+            // console.log(key);
+            const jsonObj = JSON.stringify(cardData[key]);
+            // console.log(jsonObj);
+            return <InfoText key={key} textKey={key} textData={jsonObj} />;
+          }
+          return <InfoText key={key} textKey={key} textData={cardData[key]} />;
+        })
+      );
+    }
+  }, [cardData, objFields]);
 
   useEffect(() => {
     setActiveModal(!activeModal ? "" : activeModal);
