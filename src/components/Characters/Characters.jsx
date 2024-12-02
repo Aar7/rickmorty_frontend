@@ -10,6 +10,7 @@ function Characters() {
   const navContext = useContext(NavigationContext);
   const { chars, setChars, hideShowMore, setHideShowMore, location } =
     navContext;
+
   const [loading, setLoading] = useState(true);
   const [charCards, setCharCards] = useState([]);
   const [shownCards, setShownCards] = useState([]);

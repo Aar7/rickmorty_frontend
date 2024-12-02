@@ -13,6 +13,7 @@ import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import * as ram from "../../utils/ramApi";
 import { NavigationContext } from "../../contexts/NavigationContext";
 import ItemModal from "../ItemModal/ItemModal";
+import { CARD_DATA_INITIAL_STATE } from "../../utils/config";
 
 function App() {
   const location = useLocation();
@@ -45,11 +46,11 @@ function App() {
     async function getInitialData() {
       try {
         const characterData = await ram.getAllCharacters();
-        // const locationData = await ram.getAllLocations();
+        const locationData = await ram.getAllLocations();
         const episodeData = await ram.getAllEpisodes();
 
         setChars(characterData);
-        // setLocs(locationData);
+        setLocs(locationData);
         setEpis(episodeData);
         setLoading(false);
       } catch (error) {

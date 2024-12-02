@@ -11,10 +11,10 @@ function PageNavigation({ cardData, setCardData }) {
   const [nextNavBtnClasses, setNextNavBtnClasses] =
     useState("page-nav__button");
 
-  const { chars, setChars, hideShowMore, setHideShowMore } =
-    useContext(NavigationContext);
+  const { setHideShowMore } = useContext(NavigationContext);
 
   const { count, next, pages, prev } = cardData?.info || {};
+  // console.log(cardData);
   useEffect(() => {
     // console.log(prev, next);
     setPrevNavBtnClasses(
@@ -25,17 +25,25 @@ function PageNavigation({ cardData, setCardData }) {
     );
   }, [cardData]);
 
-  async function handleClickNextBtn() {
-    if (next) {
-      const data = await goToOtherPage(next);
-      setCardData(data);
-      setHideShowMore(false);
-    }
-  }
+  // async function handleClickNextBtn() {
+  //   if (next) {
+  //     const data = await goToOtherPage(next);
+  //     setCardData(data);
+  //     setHideShowMore(false);
+  //   }
+  // }
 
-  async function handleClickPrevBtn() {
-    if (prev) {
-      const data = await goToOtherPage(prev);
+  // async function handleClickPrevBtn() {
+  //   if (prev) {
+  //     const data = await goToOtherPage(prev);
+  //     setCardData(data);
+  //     setHideShowMore(false);
+  //   }
+  // }
+
+  async function handleClickNavButton(pageLink) {
+    if (pageLink) {
+      const data = await goToOtherPage(pageLink);
       setCardData(data);
       setHideShowMore(false);
     }
@@ -47,7 +55,8 @@ function PageNavigation({ cardData, setCardData }) {
         className={prevNavBtnClasses}
         type="button"
         onClick={() => {
-          handleClickPrevBtn();
+          // handleClickPrevBtn();
+          handleClickNavButton(prev);
         }}
       >
         <p className="page-nav__direction">Prev</p>
@@ -59,7 +68,8 @@ function PageNavigation({ cardData, setCardData }) {
       <button
         className={nextNavBtnClasses}
         onClick={() => {
-          handleClickNextBtn();
+          // handleClickNextBtn();
+          handleClickNavButton(next);
         }}
       >
         <img className="page-nav__next" src={arrowRight} />

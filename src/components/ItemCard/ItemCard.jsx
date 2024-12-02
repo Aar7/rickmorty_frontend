@@ -16,19 +16,15 @@ function ItemCard({ cardData }) {
   which I want to show.
   */
   // console.log("CardData: ", cardData);
+  const { location } = useContext(NavigationContext);
   const { handleClickCard } = useContext(NavigationContext);
 
   let imgClasses = CLASSES.img;
   let itemCardImage;
   // This conditional will set the classes for the img tag in the returned markup.
-  if (cardData.hasOwnProperty("species")) {
-    // endpoint is character
+  if ((location.pathname = "/characters")) {
     imgClasses = "itemcard__charImg";
     itemCardImage = cardData.image;
-  } else if (cardData.hasOwnProperty("dimension")) {
-    // endpoint is location
-  } else {
-    // endpoint is episode
   }
   return (
     <>
