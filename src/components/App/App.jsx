@@ -13,7 +13,7 @@ import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import * as ram from "../../utils/ramApi";
 import { NavigationContext } from "../../contexts/NavigationContext";
 import ItemModal from "../ItemModal/ItemModal";
-import { CARD_DATA_INITIAL_STATE } from "../../utils/config";
+import { CARD_DATA_INITIAL_STATE, SHOW_CARDS } from "../../utils/config";
 
 function App() {
   const location = useLocation();
@@ -33,6 +33,15 @@ function App() {
   const [hideShowMore, setHideShowMore] = useState(false);
   const [activeModal, setActiveModal] = useState("");
   const [cardData, setCardData] = useState({});
+
+  function handleClickShowMore(shownCards, itemCards, setShownCards) {
+    if (shownCards.length < itemCards.length) {
+      setShownCards(itemCards.slice(0, shownCards.length + SHOW_CARDS));
+    }
+    if (shownCards.length + SHOW_CARDS >= itemCards.length) {
+      setHideShowMore(true);
+    }
+  }
 
   function handleClickCard(card) {
     setActiveModal("item-modal");
@@ -90,6 +99,7 @@ function App() {
           hideShowMore,
           setHideShowMore,
           handleClickCard,
+          handleClickShowMore,
           activeModal,
           cardData,
           location,
@@ -99,9 +109,18 @@ function App() {
         <Routes>
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/" element={loading ? <Preloader /> : <Main />} />
-          <Route path="/characters" element={<Characters />} />
-          <Route path="/locations" element={<Locations />} />
-          <Route path="/episodes" element={<Episodes />} />
+          <Route
+            path="/characters"
+            element={<Characters loading={loading} setLoading={setLoading} />}
+          />
+          <Route
+            path="/locations"
+            element={<Locations loading={loading} setLoading={setLoading} />}
+          />
+          <Route
+            path="/episodes"
+            element={<Episodes loading={loading} setLoading={setLoading} />}
+          />
           <Route path="/credits" element={<Credits />} />
         </Routes>
         <ItemModal

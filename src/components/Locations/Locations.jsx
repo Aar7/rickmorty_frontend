@@ -6,11 +6,11 @@ import Preloader from "../Preloader/Preloader";
 import { NavigationContext } from "../../contexts/NavigationContext";
 import { SHOW_CARDS } from "../../utils/config";
 
-function Locations() {
+function Locations({ loading, setLoading }) {
   const navContext = useContext(NavigationContext);
   const { locs, setLocs, hideShowMore, setHideShowMore, location } = navContext;
 
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const [locCards, setLocCards] = useState([]);
   const [shownCards, setShownCards] = useState([]);
 
@@ -38,24 +38,27 @@ function Locations() {
     setShownCards(locCards.slice(0, SHOW_CARDS));
   }, [locCards]);
 
-  function handleClickShowMore() {
-    if (shownCards.length < locCards.length) {
-      setShownCards(locCards.slice(0, shownCards.length + SHOW_CARDS));
-    }
-    if (shownCards.length + SHOW_CARDS >= locCards.length) {
-      setHideShowMore(true);
-    }
-  }
+  // function handleClickShowMore() {
+  //   if (shownCards.length < locCards.length) {
+  //     setShownCards(locCards.slice(0, shownCards.length + SHOW_CARDS));
+  //   }
+  //   if (shownCards.length + SHOW_CARDS >= locCards.length) {
+  //     setHideShowMore(true);
+  //   }
+  // }
 
   return (
     <>
       {/* <p>Locations go here</p> */}
       <div className="locations">
         <QueryWrapper
-          handleClickShowMore={handleClickShowMore}
+          // handleClickShowMore={handleClickShowMore}
           hideShowMore={hideShowMore}
           cardData={locs}
           setCardData={setLocs}
+          itemCards={locCards}
+          shownCards={shownCards}
+          setShownCards={setShownCards}
         >
           {loading ? <Preloader /> : shownCards}
         </QueryWrapper>

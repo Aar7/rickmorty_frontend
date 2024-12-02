@@ -6,12 +6,12 @@ import Preloader from "../Preloader/Preloader";
 import QueryWrapper from "../QueryWrapper/QueryWrapper";
 import ItemCard from "../ItemCard/ItemCard";
 
-function Episodes() {
+function Episodes({ loading, setLoading }) {
   const navContext = useContext(NavigationContext);
 
   const { epis, setEpis, hideShowMore, setHideShowMore, location } = navContext;
 
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const [epiCards, setEpiCards] = useState([]);
   const [shownCards, setShownCards] = useState([]);
 
@@ -40,23 +40,26 @@ function Episodes() {
     setShownCards(epiCards.slice(0, SHOW_CARDS));
   }, [epiCards]);
 
-  function handleClickShowMore() {
-    if (shownCards.length < epiCards.length) {
-      setShownCards(epiCards.slice(0, shownCards.length + SHOW_CARDS));
-    }
-    if (shownCards.length + SHOW_CARDS >= epiCards.length) {
-      setHideShowMore(true);
-    }
-  }
+  // function handleClickShowMore() {
+  //   if (shownCards.length < epiCards.length) {
+  //     setShownCards(epiCards.slice(0, shownCards.length + SHOW_CARDS));
+  //   }
+  //   if (shownCards.length + SHOW_CARDS >= epiCards.length) {
+  //     setHideShowMore(true);
+  //   }
+  // }
 
   return (
     <>
       <div className="episodes">
         <QueryWrapper
-          handleClickShowMore={handleClickShowMore}
+          // handleClickShowMore={handleClickShowMore}
           hideShowMore={hideShowMore}
           cardData={epis}
           setCardData={setEpis}
+          itemCards={epiCards}
+          shownCards={shownCards}
+          setShownCards={setShownCards}
         >
           {loading ? <Preloader /> : shownCards}
         </QueryWrapper>
