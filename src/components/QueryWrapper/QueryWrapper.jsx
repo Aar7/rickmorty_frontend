@@ -1,18 +1,25 @@
 import PageNavigation from "../PageNavigation/PageNavigation";
+import { CLASSES } from "../../utils/config";
 import "./QueryWrapper.css";
+import { useContext } from "react";
+import { NavigationContext } from "../../contexts/NavigationContext";
 
 function QueryWrapper({
-  handleClickShowMore,
   hideShowMore,
   cardData,
   setCardData,
+  itemCards,
+  shownCards,
+  setShownCards,
   children,
 }) {
-  let showMoreButtonClasses = "query-wrapper__show-more";
+  const { handleClickShowMore } = useContext(NavigationContext);
+  let showMoreButtonClasses = CLASSES.showMoreButton;
 
   if (hideShowMore) {
     showMoreButtonClasses += " query-wrapper__show-more_disabled";
   }
+
   return (
     <>
       <ul className="query-wrapper">
@@ -21,8 +28,7 @@ function QueryWrapper({
         <button
           className={showMoreButtonClasses}
           onClick={() => {
-            handleClickShowMore();
-            // console.log(hideShowMore);
+            handleClickShowMore(shownCards, itemCards, setShownCards);
           }}
         >
           Show more...

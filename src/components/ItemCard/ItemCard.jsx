@@ -1,5 +1,6 @@
-import { useContext } from "react";
 import "./ItemCard.css";
+import { CLASSES } from "../../utils/config";
+import { useContext } from "react";
 import { NavigationContext } from "../../contexts/NavigationContext";
 
 function ItemCard({ cardData }) {
@@ -15,24 +16,23 @@ function ItemCard({ cardData }) {
   which I want to show.
   */
   // console.log("CardData: ", cardData);
+  // const { location } = useContext(NavigationContext);
   const { handleClickCard } = useContext(NavigationContext);
-  let imgClasses = "itemcard__charImg itemcard__charImg_hidden";
+
+  let imgClasses = CLASSES.img;
   let itemCardImage;
   // This conditional will set the classes for the img tag in the returned markup.
+  // if ((location.pathname = "/characters")) {
   if (cardData.hasOwnProperty("species")) {
-    // endpoint is character
     imgClasses = "itemcard__charImg";
     itemCardImage = cardData.image;
-  } else if (cardData.hasOwnProperty("dimension")) {
-    // endpoint is location
-  } else {
-    // endpoint is episode
   }
   return (
     <>
       <li
         className="itemcard"
         onClick={() => {
+          // console.log(cardData);
           handleClickCard(cardData);
         }}
       >
