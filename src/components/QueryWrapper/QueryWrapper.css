@@ -1,5 +1,5 @@
 .query-wrapper {
-  background-color: pink;
+  /* background-color: rgba(200, 200, 200, 1); */
   display: grid;
   grid-template-columns: repeat(auto-fit, 200px);
   row-gap: 10px;
