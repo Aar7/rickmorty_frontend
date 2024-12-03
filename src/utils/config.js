@@ -65,3 +65,13 @@ export const CLASSES = {
   showMoreButton: "query-wrapper__show-more",
   img: "itemcard__charImg itemcard__charImg_hidden",
 };
+
+export const TITLES = [
+  "Pickle Rick!!!",
+  "C-137 <3",
+  "WLDD!!!",
+  "Evil Morty Was Here",
+  "I am Aliiiiveee!!",
+  "Schwifty",
+  // "",
+];

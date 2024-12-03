@@ -1,9 +1,19 @@
 import "./Header.css";
 import rickHead from "../../assets/images/icons8-rick-sanchez.svg";
 import mortyHead from "../../assets/images/icons8-morty-smith.svg";
-import { Link, NavLink } from "react-router-dom";
+import { TITLES } from "../../utils/config";
+import { Link, NavLink, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function Header() {
+  const [headerTitle, setHeaderTitle] = useState("...loading...");
+
+  useEffect(() => {
+    function rand(max) {
+      return Math.floor(Math.random() * max);
+    }
+    setHeaderTitle(TITLES[rand(TITLES.length - 1)]);
+  }, []);
   return (
     <>
       <header className="header">
@@ -14,7 +24,7 @@ function Header() {
             alt="Line-drawing of Rick Sanchez"
           />
           <Link to="/" className="header__title-link">
-            <h1 className="header__title">RaMHub</h1>
+            <h1 className="header__title">{headerTitle}</h1>
           </Link>
           <img
             className="header__image header__image_name_morty"
