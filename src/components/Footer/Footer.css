@@ -16,6 +16,26 @@
   border-radius: 10px;
 }
 
+.footer__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* justify-content: flex-end; */
+}
+
+.footer__text {
+  margin-bottom: 0;
+}
+
+.footer__copyright {
+  font-weight: bold;
+}
+
+.footer__link {
+  text-decoration: none;
+  font-style: oblique;
+}
+
 .footer__credits {
   text-decoration: none;
 }

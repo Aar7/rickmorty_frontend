@@ -22,6 +22,7 @@
   flex-direction: row;
   /* align-content: center; */
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .header__title-link {
@@ -62,8 +63,8 @@
   align-items: center;
   width: 120px;
   /* width: 100%; */
-  height: 60px;
-  border-radius: 100px;
+  height: 40px;
+  border-radius: 10px;
   border: solid rgba(47, 113, 229, 1) 2px;
   cursor: pointer;
   margin-top: auto;
@@ -90,7 +91,7 @@
   color: white;
 }
 
-.header__tabs_button:last-of-type {
+.header__tabs-button:last-of-type {
   margin-right: 0;
 }
 
@@ -114,7 +115,7 @@
     /* width: 0; */
   }
 
-  .header__tabs_button {
+  .header__tabs-button {
     /* width: 100px;
     height: 40px; */
     width: 75px;
