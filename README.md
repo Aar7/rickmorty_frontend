@@ -1,8 +1,10 @@
 # Rick and Morty Hub
 
-This webpage is features routing with responsive design, and was designed and built using React.js. It's goal is to give the users access to various trivia (character, location, and episode data) accessed via the [rickandmortyapi](https://rickandmortyapi.com/documentation).
+This webpage features routing with responsive design and was designed and built using React.js. Its goal is to give users access to various trivia (character, location, and episode data) via the rickandmortyapi.
 
-Responsive design is achieved via the use of media queries and other responsive styling attributes.
+Responsive design is achieved via media queries and other responsive styling attributes.
+
+I built this basic front-end application as my final project for the TripleTen Software Engineering bootcamp.
 
 ### Videos and screenshots
 
